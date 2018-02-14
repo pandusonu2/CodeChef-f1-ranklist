@@ -1,0 +1,29 @@
+<table border="1">
+    <tr>
+        <th rowspan="2"> Username </th>
+        <th rowspan="2"> Total Score </th>
+        <th colspan="{{ long|length }}"> Long </th>
+        <th colspan="{{ cook|length }}"> Cook Off </th>
+        <th colspan="{{ ltime|length }}"> Lunch Time </th>
+    </tr>
+    <tr>
+        {% for cc in long %}
+            <td>{{ cc }}</td>
+        {% endfor %}
+        {% for cc in cook %}
+            <td>{{ cc }}</td>
+        {% endfor %}
+        {% for cc in ltime %}
+            <td>{{ cc }}</td>
+        {% endfor %}
+    </tr>
+    {% for user in sorted_ranks %}
+        <tr>
+            <td>{{ user.userName }}</td>
+            <td>{{ user.score }}</td>
+            {% for cc in user.orderList %}
+                <td>{{ cc }}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
