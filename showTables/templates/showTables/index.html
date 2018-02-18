@@ -1,5 +1,6 @@
 <table border="1">
     <tr>
+        <th rowspan="2"> Rank </th>
         <th rowspan="2"> Username </th>
         <th rowspan="2"> Total Score </th>
         <th colspan="{{ long|length }}"> Long </th>
@@ -19,8 +20,9 @@
     </tr>
     {% for user in sorted_ranks %}
         <tr>
+            <td>{{ user.rank }}</td>
             <td>{{ user.userName }}</td>
-            <td>{{ user.score }}</td>
+            <td>{{ user.score }} = {{ user.diffRanks.0 }} + {{ user.diffRanks.1 }} + {{ user.diffRanks.2 }}</td>
             {% for cc in user.orderList %}
                 <td>{{ cc }}</td>
             {% endfor %}
